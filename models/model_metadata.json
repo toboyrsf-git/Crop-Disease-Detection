@@ -1,0 +1,9 @@
+{
+  "model_version": "v1.0.0-mobilenetv3-quantized",
+  "architecture": "MobileNetV3-Small",
+  "epochs_trained": 5,
+  "classes_count": 39,
+  "validation_accuracy": 0.948,
+  "macro_f1": 0.941,
+  "status": "ready_for_inference"
+}

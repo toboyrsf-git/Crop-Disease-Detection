@@ -1,0 +1,355 @@
+{
+  "classes": [
+    {
+      "id": "Apple___Apple_scab",
+      "crop": "Apple",
+      "condition": "Apple Scab",
+      "is_healthy": false,
+      "symptoms": "Olive-green to brown velvety spots on leaves, turning dark and puckered.",
+      "guidance": "Prune tree canopy to increase air circulation. Rake and compost or destroy fallen infected leaves to stop spores from overwintering. Avoid overhead watering.",
+      "chemical_warning": "Fungicide sprays should only be considered during early bud break if confirmed by an agronomist."
+    },
+    {
+      "id": "Apple___Black_rot",
+      "crop": "Apple",
+      "condition": "Black Rot (Frog-eye Leaf Spot)",
+      "is_healthy": false,
+      "symptoms": "Small purple spots on leaves expanding into circular lesions with tan centers; mummified black fruit.",
+      "guidance": "Prune out dead wood, fire blight cankers, and mummified fruit from the orchard. Disinfect pruning shears between cuts with 70% alcohol.",
+      "chemical_warning": "Never apply fungicides during bloom to protect pollinators."
+    },
+    {
+      "id": "Apple___Cedar_apple_rust",
+      "crop": "Apple",
+      "condition": "Cedar Apple Rust",
+      "is_healthy": false,
+      "symptoms": "Bright yellow-orange or reddish spots on the upper leaf surface.",
+      "guidance": "Remove nearby red cedar or juniper trees within 1-2 miles if possible. Prune galls from cedar branches in late winter before spores release.",
+      "chemical_warning": "Preventative sprays only work if applied before visible rust spots form; consult local extension officer."
+    },
+    {
+      "id": "Apple___healthy",
+      "crop": "Apple",
+      "condition": "Healthy Apple Leaf",
+      "is_healthy": true,
+      "symptoms": "Uniform green coloration, smooth margins, no active lesions or signs of fungal mycelium.",
+      "guidance": "Maintain routine nutrient feeding, monitor for aphids or mites, and maintain balanced irrigation.",
+      "chemical_warning": "No treatment required. Avoid unnecessary chemical applications."
+    },
+    {
+      "id": "Blueberry___healthy",
+      "crop": "Blueberry",
+      "condition": "Healthy Blueberry Leaf",
+      "is_healthy": true,
+      "symptoms": "Vibrant foliage, good shoot vigor, no chlorosis or leaf curling.",
+      "guidance": "Check soil pH regularly (maintain acidic pH 4.5-5.5). Mulch with pine bark or needle litter.",
+      "chemical_warning": "No treatment required."
+    },
+    {
+      "id": "Cherry_(including_sour)___Powdery_mildew",
+      "crop": "Cherry",
+      "condition": "Powdery Mildew",
+      "is_healthy": false,
+      "symptoms": "White to grayish powdery fungal growth on leaves and young shoots, leaf distortion.",
+      "guidance": "Prune to improve sunlight penetration and air movement. Avoid excess nitrogen fertilization.",
+      "chemical_warning": "Neem oil or potassium bicarbonate may be used in early stages with expert verification."
+    },
+    {
+      "id": "Cherry_(including_sour)___healthy",
+      "crop": "Cherry",
+      "condition": "Healthy Cherry Leaf",
+      "is_healthy": true,
+      "symptoms": "Clean foliage, uniform leaf development, no discolored margins.",
+      "guidance": "Maintain standard orchard hygiene and seasonal pruning.",
+      "chemical_warning": "No treatment required."
+    },
+    {
+      "id": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "crop": "Corn (Maize)",
+      "condition": "Gray Leaf Spot (Cercospora)",
+      "is_healthy": false,
+      "symptoms": "Rectangular, tan-to-gray lesions restricted by leaf veins; lesions merge causing leaf blighting.",
+      "guidance": "Practice crop rotation with non-grass crops for at least 1-2 years. Manage crop residue to reduce fungal survival.",
+      "chemical_warning": "Fungicide thresholds depend on hybrid resistance and growth stage; request agronomist guidance."
+    },
+    {
+      "id": "Corn_(maize)___Common_rust_",
+      "crop": "Corn (Maize)",
+      "condition": "Common Rust",
+      "is_healthy": false,
+      "symptoms": "Oval to elongate reddish-brown pustules scattered across both upper and lower leaf surfaces.",
+      "guidance": "Plant resistant hybrid varieties. Rust thrives in cool, humid conditions; maintain good row spacing.",
+      "chemical_warning": "Treatment rarely economical unless rust appears early on susceptible inbred lines before silking."
+    },
+    {
+      "id": "Corn_(maize)___Northern_Leaf_Blight",
+      "crop": "Corn (Maize)",
+      "condition": "Northern Leaf Blight",
+      "is_healthy": false,
+      "symptoms": "Long, elliptical cigar-shaped grayish-green lesions that become tan, starting on lower leaves.",
+      "guidance": "Rotate with legumes or other non-host crops. Deep plow residues after harvest where conservation tillage allows.",
+      "chemical_warning": "Fungicides are only recommended if lesions threaten the ear leaf before tassel."
+    },
+    {
+      "id": "Corn_(maize)___healthy",
+      "crop": "Corn (Maize)",
+      "condition": "Healthy Corn Leaf",
+      "is_healthy": true,
+      "symptoms": "Broad green leaves, no blights, pustules, or striping.",
+      "guidance": "Maintain balanced nitrogen-phosphorus-potassium nutrition and weed control.",
+      "chemical_warning": "No treatment required."
+    },
+    {
+      "id": "Grape___Black_rot",
+      "crop": "Grape",
+      "condition": "Black Rot",
+      "is_healthy": false,
+      "symptoms": "Small brown circular spots with black borders on leaves; berries shrivel into hard black mummies.",
+      "guidance": "Sanitation is vital: destroy all mummified grapes on the vine and ground during winter pruning. Keep canopy open.",
+      "chemical_warning": "Protective applications must occur between early bloom and 4 weeks post-bloom."
+    },
+    {
+      "id": "Grape___Esca_(Black_Measles)",
+      "crop": "Grape",
+      "condition": "Esca (Black Measles / Trunk Disease)",
+      "is_healthy": false,
+      "symptoms": "Tiger-stripe chlorosis and necrosis between leaf veins; dark spots on grape berries.",
+      "guidance": "Avoid pruning during damp/rainy weather. Seal pruning wounds with wound protectants. Remove diseased cordons.",
+      "chemical_warning": "No curative chemical exists. Field management relies entirely on preventative sanitation."
+    },
+    {
+      "id": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+      "crop": "Grape",
+      "condition": "Leaf Blight (Isariopsis)",
+      "is_healthy": false,
+      "symptoms": "Irregular dark reddish-brown lesions with distinct margins on older leaves, premature defoliation.",
+      "guidance": "Collect and destroy fallen leaf debris after harvest. Ensure adequate vine trellising and airflow.",
+      "chemical_warning": "Copper-based sprays may be used if severity is confirmed by agronomist."
+    },
+    {
+      "id": "Grape___healthy",
+      "crop": "Grape",
+      "condition": "Healthy Grape Leaf",
+      "is_healthy": true,
+      "symptoms": "Lush green lobed foliage, clean veins, no spots or powdery coating.",
+      "guidance": "Continue regular canopy training and shoot positioning.",
+      "chemical_warning": "No treatment required."
+    },
+    {
+      "id": "Orange___Haunglongbing_(Citrus_greening)",
+      "crop": "Orange / Citrus",
+      "condition": "Citrus Greening (Huanglongbing - HLB)",
+      "is_healthy": false,
+      "symptoms": "Asymmetric blotchy mottle chlorosis across leaf veins, small lopsided bitter fruit with green bottoms.",
+      "guidance": "Quarantine emergency: notify local agricultural extension immediately! Control Asian citrus psyllid vectors. Use certified disease-free nursery stock.",
+      "chemical_warning": "No cure once infected; infected trees must be safely removed to protect the remaining grove."
+    },
+    {
+      "id": "Peach___Bacterial_spot",
+      "crop": "Peach",
+      "condition": "Bacterial Spot (Xanthomonas)",
+      "is_healthy": false,
+      "symptoms": "Small water-soaked angular spots on leaves, turning purple and dropping out to create a 'shot-hole' look.",
+      "guidance": "Avoid excessive nitrogen fertilizers which promote overly lush, tender shoots. Plant windbreaks to reduce sandblast injury.",
+      "chemical_warning": "Copper sprays during dormancy; strict dosage required to avoid phytotoxicity."
+    },
+    {
+      "id": "Peach___healthy",
+      "crop": "Peach",
+      "condition": "Healthy Peach Leaf",
+      "is_healthy": true,
+      "symptoms": "Smooth lanceolate leaves, deep green color, free of shot holes or curling.",
+      "guidance": "Maintain routine pruning and moisture management.",
+      "chemical_warning": "No treatment required."
+    },
+    {
+      "id": "Pepper,_bell___Bacterial_spot",
+      "crop": "Bell Pepper",
+      "condition": "Bacterial Spot",
+      "is_healthy": false,
+      "symptoms": "Small, yellowish-green spots with water-soaked borders turning brown with necrotic centers.",
+      "guidance": "Use clean, certified disease-free seeds. Never work in wet fields or use overhead sprinkler irrigation.",
+      "chemical_warning": "Copper bactericides have limited effectiveness if copper-resistant strains exist; agronomist test recommended."
+    },
+    {
+      "id": "Pepper,_bell___healthy",
+      "crop": "Bell Pepper",
+      "condition": "Healthy Bell Pepper Leaf",
+      "is_healthy": true,
+      "symptoms": "Deep green glossy leaves, strong stem structure, no wilting or spotting.",
+      "guidance": "Ensure regular drip irrigation and consistent calcium to prevent blossom end rot.",
+      "chemical_warning": "No treatment required."
+    },
+    {
+      "id": "Potato___Early_blight",
+      "crop": "Potato",
+      "condition": "Early Blight (Alternaria)",
+      "is_healthy": false,
+      "symptoms": "Concentric rings ('target-board' or bullseye pattern) on older lower leaves, surrounded by yellow halos.",
+      "guidance": "Keep plants vigorous with proper fertility and irrigation. Avoid sprinkler irrigation late in the afternoon. Practice 3-year rotation.",
+      "chemical_warning": "Screening aid only; confirm severity before purchasing protectant fungicides."
+    },
+    {
+      "id": "Potato___Late_blight",
+      "crop": "Potato",
+      "condition": "Late Blight (Phytophthora infestans)",
+      "is_healthy": false,
+      "symptoms": "Fast-spreading water-soaked pale green to dark brown lesions, white cottony mold under leaves in high humidity.",
+      "guidance": "HIGH RISK: Spreads rapidly! Destroy infected volunteer plants. Hill potatoes well to protect developing tubers.",
+      "chemical_warning": "Immediate expert consultation required. Apply protective fungicides only upon agronomist alert."
+    },
+    {
+      "id": "Potato___healthy",
+      "crop": "Potato",
+      "condition": "Healthy Potato Leaf",
+      "is_healthy": true,
+      "symptoms": "Compound green foliage, erect growth, no necrotic margins.",
+      "guidance": "Maintain steady hill moisture and monitor for Colorado potato beetle.",
+      "chemical_warning": "No treatment required."
+    },
+    {
+      "id": "Raspberry___healthy",
+      "crop": "Raspberry",
+      "condition": "Healthy Raspberry Leaf",
+      "is_healthy": true,
+      "symptoms": "Serrated leaves, bright green surface, clean undersides.",
+      "guidance": "Prune out spent floricanes after fruiting to improve airflow.",
+      "chemical_warning": "No treatment required."
+    },
+    {
+      "id": "Soybean___healthy",
+      "crop": "Soybean",
+      "condition": "Healthy Soybean Leaf",
+      "is_healthy": true,
+      "symptoms": "Trifoliate leaves with vibrant green coloration and no mosaic pattern.",
+      "guidance": "Maintain routine weed management and scout for pod borers.",
+      "chemical_warning": "No treatment required."
+    },
+    {
+      "id": "Squash___Powdery_mildew",
+      "crop": "Squash",
+      "condition": "Powdery Mildew",
+      "is_healthy": false,
+      "symptoms": "Talcum powder-like white fungal colonies on upper and lower leaf surfaces, causing yellowing and premature drying.",
+      "guidance": "Plant resistant cultivars. Space rows adequately to maximize sun exposure. Water at soil level.",
+      "chemical_warning": "Bio-fungicides like potassium silicate or biological bacillus subtilis can be evaluated by an extension officer."
+    },
+    {
+      "id": "Strawberry___Leaf_scorch",
+      "crop": "Strawberry",
+      "condition": "Leaf Scorch",
+      "is_healthy": false,
+      "symptoms": "Numerous small, dark purple irregular blotches on leaves that enlarge and cause entire leaf to look scorched brown.",
+      "guidance": "Renovate beds after harvest by mowing old foliage. Clean away dead leaf debris.",
+      "chemical_warning": "Avoid unnecessary chemical spraying; focus on canopy aeration."
+    },
+    {
+      "id": "Strawberry___healthy",
+      "crop": "Strawberry",
+      "condition": "Healthy Strawberry Leaf",
+      "is_healthy": true,
+      "symptoms": "Glossy green trifoliate leaves, no purple margins.",
+      "guidance": "Maintain clean straw mulching to prevent soil splash on fruit and leaves.",
+      "chemical_warning": "No treatment required."
+    },
+    {
+      "id": "Tomato___Bacterial_spot",
+      "crop": "Tomato",
+      "condition": "Bacterial Spot",
+      "is_healthy": false,
+      "symptoms": "Small, dark greasy spots on leaves often surrounded by a yellow halo, with jagged or irregular edges.",
+      "guidance": "Do not handle or prune wet plants. Use drip irrigation instead of overhead sprinklers. Rotate tomatoes away from nightshades for 2 years.",
+      "chemical_warning": "Bactericides have limited efficacy. Agronomist confirmation is advised before spending money."
+    },
+    {
+      "id": "Tomato___Early_blight",
+      "crop": "Tomato",
+      "condition": "Early Blight (Alternaria solani)",
+      "is_healthy": false,
+      "symptoms": "Dark brown concentric rings forming a bullseye pattern on lower leaves; tissue yellowing around the lesions.",
+      "guidance": "Mulch the soil surface around plants to prevent spores splashing upward. Prune lower suckers 12 inches above ground.",
+      "chemical_warning": "Screening aid only; confirm with extension officer to distinguish from Septoria leaf spot."
+    },
+    {
+      "id": "Tomato___Late_blight",
+      "crop": "Tomato",
+      "condition": "Late Blight (Phytophthora)",
+      "is_healthy": false,
+      "symptoms": "Large, irregular water-soaked spots on leaves turning brown-black; white fuzzy mold on leaf undersides in wet weather.",
+      "guidance": "HIGH EMERGENCY: Can destroy whole fields in days. Bag and remove severely infected plants immediately. Do not compost.",
+      "chemical_warning": "Urgent expert confirmation needed. Preventive protectants only work before disease spreads."
+    },
+    {
+      "id": "Tomato___Leaf_Mold",
+      "crop": "Tomato",
+      "condition": "Leaf Mold (Passalora fulva)",
+      "is_healthy": false,
+      "symptoms": "Pale greenish-yellow spots on upper leaf surface, with olive-green to brown velvety patches on underside.",
+      "guidance": "Common in humid greenhouses or tunnels. Ventilate aggressively to keep relative humidity below 85%.",
+      "chemical_warning": "Improve air circulation first before attempting chemical interventions."
+    },
+    {
+      "id": "Tomato___Septoria_leaf_spot",
+      "crop": "Tomato",
+      "condition": "Septoria Leaf Spot",
+      "is_healthy": false,
+      "symptoms": "Numerous small circular spots with dark brown margins and gray or tan centers with tiny black specks.",
+      "guidance": "Remove and discard lower diseased leaves as soon as noticed. Stake plants to keep leaves off the damp soil.",
+      "chemical_warning": "Often confused with early blight; consult agronomist for targeted cultural management."
+    },
+    {
+      "id": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "crop": "Tomato",
+      "condition": "Two-Spotted Spider Mites",
+      "is_healthy": false,
+      "symptoms": "Fine yellow or white stippling on leaf surface, fine webbing visible on undersides of leaves.",
+      "guidance": "Wash leaf undersides with strong water spray. Encourage natural predators (lacewings, predatory mites).",
+      "chemical_warning": "Broad-spectrum pesticides worsen mite outbreaks by killing predatory bugs; avoid chemical sprays."
+    },
+    {
+      "id": "Tomato___Target_Spot",
+      "crop": "Tomato",
+      "condition": "Target Spot (Corynespora)",
+      "is_healthy": false,
+      "symptoms": "Small brown spots with subtle concentric rings and light brown centers, lesions expand and coalesce.",
+      "guidance": "Improve canopy ventilation and practice strict field sanitation. Avoid night-time overhead watering.",
+      "chemical_warning": "Fungicide options should be confirmed by an agricultural extension specialist."
+    },
+    {
+      "id": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "crop": "Tomato",
+      "condition": "Tomato Yellow Leaf Curl Virus (TYLCV)",
+      "is_healthy": false,
+      "symptoms": "Severe upward cupping of leaves, yellowing of leaf margins, stunted bushy growth, and floral drop.",
+      "guidance": "Transmitted by whiteflies. Use yellow sticky traps and insect-proof row covers. Immediately pull out and bag infected plants.",
+      "chemical_warning": "Viral diseases have NO chemical cure. Spraying plants will not cure the virus; focus on vector control."
+    },
+    {
+      "id": "Tomato___Tomato_mosaic_virus",
+      "crop": "Tomato",
+      "condition": "Tomato Mosaic Virus (ToMV)",
+      "is_healthy": false,
+      "symptoms": "Mottled light and dark green pattern on leaves, fern-like leaf distortion, blistering.",
+      "guidance": "Transmitted mechanically by hands and tools (and tobacco). Wash hands with soap and water before handling plants. Sterilize pruners.",
+      "chemical_warning": "NO chemical pesticide can cure plant viruses. Do not waste money on fungicides."
+    },
+    {
+      "id": "Tomato___healthy",
+      "crop": "Tomato",
+      "condition": "Healthy Tomato Leaf",
+      "is_healthy": true,
+      "symptoms": "Uniform deep green foliage, no spotting, no leaf cupping, healthy growth tips.",
+      "guidance": "Maintain consistent watering to prevent blossom end rot. Scout weekly for hornworms and aphids.",
+      "chemical_warning": "No treatment required. Avoid preventative pesticide use."
+    },
+    {
+      "id": "Unknown_or_NonPlant",
+      "crop": "Unknown / Out-of-Distribution",
+      "condition": "Unrecognized Leaf or Cluttered Background",
+      "is_healthy": false,
+      "symptoms": "The captured image could not be matched reliably to trained crop diseases.",
+      "guidance": "Please hold the camera 15-20 cm away from a single leaf, ensure natural daylight, and avoid blurry focus or heavy background clutter.",
+      "chemical_warning": "DO NOT apply chemicals or pesticides based on an uncertain reading. Always consult an agronomist."
+    }
+  ]
+}

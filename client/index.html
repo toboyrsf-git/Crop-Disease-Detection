@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Crop Disease Screening Aid</title>
+  <meta name="description" content="Real-time, on-device crop disease screening aid for smallholder farmers.">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1b5e20">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header with Connectivity & Language Selector -->
+    <header class="app-header">
+      <div class="header-top">
+        <div class="brand">
+          <span class="brand-icon">🌱</span>
+          <h1 id="txt-app-title" class="brand-title">Crop Screening Aid</h1>
+        </div>
+        <div class="header-controls">
+          <div id="connection-badge" class="badge-status badge-online">
+            <span class="status-dot"></span>
+            <span id="txt-connection-status">Online</span>
+          </div>
+          <select id="language-selector" class="lang-picker" aria-label="Language Selector">
+            <option value="en">English</option>
+            <option value="sw">Kiswahili</option>
+            <option value="hi">हिन्दी</option>
+            <option value="ta">தமிழ்</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+          </select>
+        </div>
+      </div>
+      
+      <!-- MANDATORY SCREENING DISCLAIMER (Never dismissible) -->
+      <aside class="persistent-disclaimer" role="alert">
+        <span class="disclaimer-icon">⚠️</span>
+        <p id="txt-disclaimer">
+          <strong>SCREENING AID ONLY:</strong> Not a certified diagnosis. Consult a qualified agricultural extension officer before purchasing or applying pesticides.
+        </p>
+      </aside>
+    </header>
+
+    <!-- Main Screening Viewport -->
+    <main class="main-content">
+      <!-- Camera Capture Card -->
+      <section id="capture-section" class="card capture-card">
+        <div class="camera-viewport-container">
+          <video id="camera-stream" autoplay playsinline muted></video>
+          <canvas id="photo-canvas" style="display:none;"></canvas>
+          <img id="captured-preview" alt="Leaf Snapshot" style="display:none;" />
+          
+          <!-- Guided Framing Overlay -->
+          <div id="framing-overlay" class="framing-overlay">
+            <div class="reticle-box">
+              <div class="corner corner-tl"></div>
+              <div class="corner corner-tr"></div>
+              <div class="corner corner-bl"></div>
+              <div class="corner corner-br"></div>
+              <div class="leaf-guide-svg">
+                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M50 85 C50 85 20 60 20 35 C20 18 35 15 50 15 C65 15 80 18 80 35 C80 60 50 85 50 85 Z" stroke-dasharray="4 3"/>
+                  <line x1="50" y1="15" x2="50" y2="85" stroke-dasharray="2 2" />
+                </svg>
+              </div>
+            </div>
+            
+            <div class="framing-indicators">
+              <span id="lighting-indicator" class="pill-indicator" style="display: none;">☀️ Good Lighting</span>
+              <span id="framing-text" class="framing-prompt">Center single leaf inside frame</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="capture-controls">
+          <button id="btn-capture" class="btn btn-primary btn-large">
+            <span class="btn-icon">📸</span>
+            <span id="txt-btn-capture">Capture & Screen Leaf</span>
+          </button>
+          
+          <button id="btn-retake" class="btn btn-secondary btn-large" style="display: none;">
+            <span class="btn-icon">🔄</span>
+            <span id="txt-btn-retake">Retake Photo</span>
+          </button>
+
+          <label class="btn btn-outline file-upload-label" for="file-input">
+            <span>📁 Upload Leaf Image</span>
+            <input type="file" id="file-input" accept="image/*" style="display: none;">
+          </label>
+        </div>
+      </section>
+
+      <!-- Offline Sync Banner (Visible when offline cases exist) -->
+      <section id="sync-banner" class="sync-banner" style="display: none;">
+        <div class="sync-info">
+          <span class="sync-icon">📶</span>
+          <span id="sync-count-text">2 pending offline screenings</span>
+        </div>
+        <button id="btn-sync" class="btn btn-sm btn-sync">
+          <span id="txt-btn-sync">Sync Now</span>
+        </button>
+      </section>
+
+      <!-- Screening Results Card (Dynamic) -->
+      <section id="results-card" class="card results-card" style="display: none;">
+        <div class="result-header">
+          <div id="tier-badge" class="tier-pill tier-high">
+            <span id="tier-status-text">Screening Indicator</span>
+          </div>
+          <span id="model-latency-tag" class="latency-tag">⚡ 120ms (On-Device)</span>
+        </div>
+
+        <div class="disease-meta">
+          <div class="meta-row">
+            <span class="meta-label" id="txt-crop-label">Crop:</span>
+            <span class="meta-value bold" id="result-crop">Tomato</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label" id="txt-condition-label">Condition:</span>
+            <h2 class="disease-name" id="result-condition">Early Blight</h2>
+          </div>
+        </div>
+
+        <!-- Confidence Gauge & Margin -->
+        <div class="confidence-container">
+          <div class="confidence-labels">
+            <span id="txt-confidence-label">Confidence:</span>
+            <span class="confidence-percent bold" id="result-confidence">94%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div id="confidence-bar" class="progress-bar-fill" style="width: 94%;"></div>
+          </div>
+          <p id="triage-explanation" class="triage-notes">
+            Preliminary screening match. No severe immediate pathogen risk detected.
+          </p>
+        </div>
+
+        <!-- Common Symptoms Section -->
+        <div class="info-block">
+          <h3 class="info-title">
+            <span class="info-icon">🔍</span>
+            <span id="txt-symptoms-title">Visual Symptoms</span>
+          </h3>
+          <p id="result-symptoms" class="info-body">
+            Dark concentric spots with yellow halos appearing first on lower leaves.
+          </p>
+        </div>
+
+        <!-- Non-Chemical Cultural Actions -->
+        <div class="info-block cultural-block">
+          <h3 class="info-title">
+            <span class="info-icon">🌾</span>
+            <span id="txt-actions-title">Recommended Cultural Actions</span>
+          </h3>
+          <p id="result-guidance" class="info-body">
+            Mulch soil surface to prevent spore splash. Avoid overhead watering in late afternoon. Prune infected lower foliage.
+          </p>
+        </div>
+
+        <!-- Chemical Caution Box -->
+        <div class="caution-box">
+          <h4 id="txt-warning-title">⚠️ Pesticide Caution</h4>
+          <p id="result-chemical-warning">
+            Do not apply synthetic fungicides without an in-person field check from an agricultural extension worker.
+          </p>
+        </div>
+
+        <!-- Agronomist Escalation Action -->
+        <div class="escalation-action-container">
+          <div id="escalation-notice" class="escalation-notice" style="display: none;">
+            <span class="notice-icon">📋</span>
+            <span id="escalation-msg">Case automatically queued for Agronomist Review.</span>
+          </div>
+
+          <button id="btn-request-expert" class="btn btn-warning btn-full">
+            <span class="btn-icon">👨‍🌾</span>
+            <span id="txt-btn-request-expert">Request Agronomist Review</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Navigation to Agronomist Dashboard -->
+      <div class="portal-link-box">
+        <a href="/expert" class="portal-link">
+          <span>Go to Agronomist Review Dashboard →</span>
+        </a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Plant Pathology Screening Aid • Smallholder Resilient Systems • v1.0.0</p>
+    </footer>
+  </div>
+
+  <script src="translations.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

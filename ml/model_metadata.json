@@ -1,0 +1,40 @@
+{
+  "model_version": "v1.2.0-mobilenetv3-quantized",
+  "base_architecture": "MobileNetV3-Small",
+  "training_dataset": "PlantVillage-Stratified-v2",
+  "num_classes": 39,
+  "input_shape": [
+    1,
+    3,
+    224,
+    224
+  ],
+  "normalization": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "triage_thresholds": {
+    "high_confidence_min": 0.8,
+    "medium_confidence_min": 0.5,
+    "confidence_margin_min": 0.35,
+    "max_acceptable_entropy": 0.7
+  },
+  "metrics": {
+    "validation_accuracy": 0.948,
+    "macro_f1_score": 0.941,
+    "average_latency_ms": 142
+  },
+  "export_date": "2026-09-27T12:00:00Z",
+  "active_learning_cycle": 2,
+  "last_retrained_at": "2026-09-27T12:13:15.374562+00:00",
+  "field_validation_samples": 2,
+  "field_accuracy": 0.0
+}

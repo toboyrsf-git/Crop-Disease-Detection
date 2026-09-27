@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agronomist Escalation & Review Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Top Navigation Bar -->
+    <header class="top-nav">
+      <div class="nav-brand">
+        <span class="brand-icon">🔬</span>
+        <div>
+          <h2>Agronomist Escalation Dashboard</h2>
+          <p class="subtitle">Human-in-the-Loop Plant Pathology Review & Active Learning</p>
+        </div>
+      </div>
+      <div class="nav-stats">
+        <div class="stat-badge stat-urgent">
+          <span class="stat-count" id="count-urgent">0</span>
+          <span class="stat-label">Urgent / Low Conf</span>
+        </div>
+        <div class="stat-badge stat-pending">
+          <span class="stat-count" id="count-pending">0</span>
+          <span class="stat-label">Pending Review</span>
+        </div>
+        <div class="stat-badge stat-resolved">
+          <span class="stat-count" id="count-reviewed">0</span>
+          <span class="stat-label">Reviewed Cases</span>
+        </div>
+        <button id="btn-export-retrain" class="btn btn-export">
+          <span>📦 Export Active Learning Pool</span>
+        </button>
+        <a href="/" class="btn btn-client-link">Farmer Client View →</a>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <div class="dashboard-body">
+      <!-- Left Column: Case Queue -->
+      <aside class="case-queue-panel">
+        <div class="queue-toolbar">
+          <div class="filter-group">
+            <label for="filter-status">Status:</label>
+            <select id="filter-status">
+              <option value="pending_review">Pending Review</option>
+              <option value="reviewed">Reviewed</option>
+              <option value="">All Cases</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-urgency">Urgency:</label>
+            <select id="filter-urgency">
+              <option value="">All Urgencies</option>
+              <option value="urgent_review">Urgent (Tier 3 / OOD)</option>
+              <option value="standard_review">Standard (Tier 2)</option>
+              <option value="farmer_requested">Farmer Requested</option>
+            </select>
+          </div>
+          <button id="btn-refresh-queue" class="btn-icon-refresh" title="Refresh Queue">🔄</button>
+        </div>
+
+        <div id="case-list-container" class="case-list">
+          <div class="loading-state">Loading escalation queue...</div>
+        </div>
+      </aside>
+
+      <!-- Right Column: Case Inspector & Expert Form -->
+      <main class="case-inspector-panel">
+        <div id="no-case-selected" class="empty-selection">
+          <span class="empty-icon">🍃</span>
+          <h3>Select a case from the queue</h3>
+          <p>Review leaf photo, inspect model confidence & entropy, and prescribe verified advice.</p>
+        </div>
+
+        <div id="case-inspector" class="inspector-content" style="display: none;">
+          <!-- Case Header & Urgency Alert -->
+          <div class="inspector-header">
+            <div>
+              <div class="case-id-row">
+                <span class="case-id-tag" id="disp-case-id">CASE-XXXX</span>
+                <span id="disp-urgency-badge" class="badge-urgency">Urgent Review</span>
+                <span id="disp-status-badge" class="badge-status-tag">Pending</span>
+              </div>
+              <h1 id="disp-headline" class="case-title">Potential Tomato Late Blight</h1>
+            </div>
+            <div class="case-timestamp" id="disp-timestamp">Today at 14:32 UTC</div>
+          </div>
+
+          <!-- Inspector Grid -->
+          <div class="inspector-grid">
+            <!-- Left: High-Res Image Inspection -->
+            <div class="image-viewer-card">
+              <div class="image-box">
+                <img id="disp-image" src="" alt="Field Leaf Photo">
+              </div>
+              <div class="image-meta">
+                <div class="meta-item">
+                  <span class="meta-lbl">Location:</span>
+                  <span id="disp-location" class="meta-val">Sector 4</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-lbl">Farmer Notes:</span>
+                  <span id="disp-notes" class="meta-val">Leaves curling with dark blotches</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: AI Screening Analysis & Verification Form -->
+            <div class="verification-card">
+              <!-- AI Prediction Analysis -->
+              <section class="ai-analysis-box">
+                <h3>Model Screening Assessment</h3>
+                <div class="metric-row">
+                  <div>
+                    <span class="metric-lbl">Predicted Class:</span>
+                    <strong id="disp-pred-class" class="metric-highlight">Tomato Late Blight</strong>
+                  </div>
+                  <div>
+                    <span class="metric-lbl">Confidence:</span>
+                    <strong id="disp-confidence" class="metric-val">74.2%</strong>
+                  </div>
+                </div>
+                <div class="metric-row">
+                  <div>
+                    <span class="metric-lbl">Second Runner-up:</span>
+                    <span id="disp-second-class" class="metric-val">Tomato Early Blight (21%)</span>
+                  </div>
+                  <div>
+                    <span class="metric-lbl">Entropy (Uncertainty):</span>
+                    <span id="disp-entropy" class="metric-val">0.68</span>
+                  </div>
+                </div>
+                <div class="metric-sub">
+                  <span>Model Version: <code id="disp-model-version">v1.0.0-mobilenetv3-quantized</code></span>
+                </div>
+              </section>
+
+              <!-- Expert Verification Form -->
+              <form id="expert-review-form" class="review-form">
+                <h3>Agronomist Verification & Prescription</h3>
+                
+                <div class="form-group">
+                  <label for="select-verified-class">Verified Diagnosis (Ground Truth):</label>
+                  <select id="select-verified-class" required>
+                    <!-- Populated dynamically from 38 PlantVillage classes -->
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Severity Rating:</label>
+                  <div class="radio-pill-group">
+                    <label class="radio-pill">
+                      <input type="radio" name="severity" value="mild" checked>
+                      <span>Mild (Early)</span>
+                    </label>
+                    <label class="radio-pill">
+                      <input type="radio" name="severity" value="moderate">
+                      <span>Moderate</span>
+                    </label>
+                    <label class="radio-pill">
+                      <input type="radio" name="severity" value="severe">
+                      <span>Severe</span>
+                    </label>
+                    <label class="radio-pill">
+                      <input type="radio" name="severity" value="critical">
+                      <span>Critical (Emergency)</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="input-prescribed-actions">Non-Chemical Cultural Actions:</label>
+                  <textarea id="input-prescribed-actions" rows="3" placeholder="e.g. Prune lower affected foliage, improve row aeration, sanitize tools..."></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="input-expert-notes">Expert Message to Farmer (Pesticide Safety Included):</label>
+                  <textarea id="input-expert-notes" rows="3" placeholder="Clear, plain language guidance. Emphasize strict precautions if recommending protectants."></textarea>
+                </div>
+
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary-action">
+                    <span>✅ Submit Diagnosis & Send to Farmer</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

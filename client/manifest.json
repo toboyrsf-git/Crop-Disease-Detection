@@ -1,0 +1,16 @@
+{
+  "name": "Crop Disease Screening Aid",
+  "short_name": "CropScreen",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8faf6",
+  "theme_color": "#1b5e20",
+  "description": "On-device, photo-based crop disease screening aid for smallholder farmers.",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
